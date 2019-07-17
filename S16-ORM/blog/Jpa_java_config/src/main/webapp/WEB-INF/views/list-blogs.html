@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Spring MVC 5 - form handling | Java Guides</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="col-md-offset-1 col-md-10">
+        <h3 class="text-center">list</h3>
+        <hr />
+
+        <input type="button" value="Add Customer"
+               onclick="window.location.href='showForm'; return false;"
+               class="btn btn-primary" /> <br />
+        <br />
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div class="panel-title">Customer List</div>
+            </div>
+            <div class="panel-body">
+                <table class="table table-striped table-bordered">
+                    <tr>
+                        <th>Title</th>
+                        <th>Des</th>
+                        <th>Author</th>
+                        <th>Create</th>
+                    </tr>
+
+                    <!-- loop over and print our customers -->
+                    <th:block th:each="tempBlog: ${blogs}">
+
+                        <!-- construct an "update" link with customer id -->
+                            <td th:text="${tempBlog.id}">${tempBlog.title}" </td>
+                            <td>${tempBlog.des}</td>
+                            <td>${tempBlog.author}</td>
+                            <td>${tempBlog.date}</td>
+
+                            <td>
+                                <!-- display the update link --> <a href="${updateLink}">Update</a>
+                                <!-- display the update link --> <a href="${read}">READ MORE</a>
+                                | <a href="${deleteLink}"
+                                     onclick="if (!(confirm('Are you sure you want to delete this blog?'))) return false">Delete</a>
+                            </td>
+
+                    </th:block>
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="footer">
+    <p>Footer</p>
+</div>
+</body>
+
+</html>

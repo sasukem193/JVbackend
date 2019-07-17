@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Spring MVC 5 - form handling | Java Guides</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+<div class="container">
+    <div class="col-md-offset-2 col-md-7">
+        <h3 class="text-center">Spring MVC 5 + Spring Data JPA 2 + JSP + MySQL
+            Example - Customer Management</h3>
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div class="panel-title">Add Customer</div>
+            </div>
+            <div class="panel-body">
+                <form th:action="@{/blog/saveBlog}" th:class="form-horizontal"
+                           method="post" th:object="${blog}">
+
+                    <!-- need to associate this data with customer id -->
+                    <input type="hidden" th:field="*{id}">
+
+                    <div class="form-group">
+                        <label th:for="title" class="col-md-3 control-label">Title</label>
+                        <div class="col-md-9">
+                            <input th:field="*{title}" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label th:for="des" class="col-md-3 control-label">Des</label>
+                        <div class="col-md-9">
+                            <input th:field="*{des}" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label th:for="author" class="col-md-3 control-label">Author</label>
+                        <div class="col-md-9">
+                            <input th:field="*{author}" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label th:for="body" class="col-md-3 control-label">Body</label>
+                        <div class="col-md-9">
+                            <input th:field="*{body}" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <!-- Button -->
+                        <div class="col-md-offset-3 col-md-9">
+                            <input type="submit" value="Submit" class="btn btn-primary">
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
